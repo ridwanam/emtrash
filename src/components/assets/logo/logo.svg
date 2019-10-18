@@ -1,0 +1,20 @@
+<svg xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" width="129" height="42" viewBox="0 0 129 42">
+  <defs>
+    <clipPath id="clip-Logo">
+      <rect width="129" height="42"/>
+    </clipPath>
+  </defs>
+  <g id="Logo" clip-path="url(#clip-Logo)">
+    <g id="Group_630" data-name="Group 630" transform="translate(0 -11)">
+      <g id="Group_629" data-name="Group 629" transform="translate(-1 -25)">
+        <rect id="Rectangle_664" data-name="Rectangle 664" width="42" height="42" transform="translate(1 36)" fill="none"/>
+        <g id="Group_628" data-name="Group 628" transform="translate(-22.95 -1.805)">
+          <path id="Path_909" data-name="Path 909" d="M4002.754,1956.957s1.6-3.5,4.034-1.569,5.066,6.427,5.066,6.427" transform="translate(-3960.774 -1908)" fill="none" stroke="#06ebfe" stroke-linecap="round" stroke-linejoin="round" stroke-width="7.5"/>
+          <path id="Path_910" data-name="Path 910" d="M4005.2,1967.769s6.9,1.224,10.073-.355.623-5.111.623-5.111" transform="translate(-3957.608 -1898.28)" fill="#fff" stroke="#3f97e2" stroke-linecap="round" stroke-linejoin="round" stroke-width="7.5"/>
+          <path id="Path_911" data-name="Path 911" d="M4001.607,1960.457s-3.778,4.8-3.655,7.605,4.505,2.426,4.505,2.426" transform="translate(-3966.999 -1900.672)" fill="none" stroke="#3f97e2" stroke-linecap="round" stroke-linejoin="round" stroke-width="7.5"/>
+        </g>
+      </g>
+      <text id="Emtrash" transform="translate(46 40)" fill="#333153" font-size="20" font-family="Quicksand-Bold, Quicksand" font-weight="700"><tspan x="0" y="0">Emtrash</tspan></text>
+    </g>
+  </g>
+</svg>

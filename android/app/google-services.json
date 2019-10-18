@@ -1,0 +1,77 @@
+{
+  "project_info": {
+    "project_number": "814524367454",
+    "firebase_url": "https://smarbin-ridwan.firebaseio.com",
+    "project_id": "smarbin-ridwan",
+    "storage_bucket": "smarbin-ridwan.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:814524367454:android:a623feda71793cd9396acf",
+        "android_client_info": {
+          "package_name": "com.emtrash"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "814524367454-al8j1oevh9l7f3r3p0i5dihoambl1g62.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyD4oCw8lFXxXkRXH7K29EMQo7YIq1aXKzI"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "814524367454-al8j1oevh9l7f3r3p0i5dihoambl1g62.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    },
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:814524367454:android:333400bdde0c04be",
+        "android_client_info": {
+          "package_name": "com.ridwan.smartbin"
+        }
+      },
+      "oauth_client": [
+        {
+          "client_id": "814524367454-2e5appf64i751vmt6fg931l3g48rbq0b.apps.googleusercontent.com",
+          "client_type": 1,
+          "android_info": {
+            "package_name": "com.ridwan.smartbin",
+            "certificate_hash": "45b5ecc7af7a0e373072779ed7421f930b1de19b"
+          }
+        },
+        {
+          "client_id": "814524367454-al8j1oevh9l7f3r3p0i5dihoambl1g62.apps.googleusercontent.com",
+          "client_type": 3
+        }
+      ],
+      "api_key": [
+        {
+          "current_key": "AIzaSyD4oCw8lFXxXkRXH7K29EMQo7YIq1aXKzI"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": [
+            {
+              "client_id": "814524367454-al8j1oevh9l7f3r3p0i5dihoambl1g62.apps.googleusercontent.com",
+              "client_type": 3
+            }
+          ]
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
