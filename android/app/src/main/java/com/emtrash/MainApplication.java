@@ -4,12 +4,16 @@ import android.app.Application;
 import android.content.Context;
 import com.facebook.react.PackageList;
 import com.facebook.react.ReactApplication;
+import com.reactnativecommunity.asyncstorage.AsyncStoragePackage;
 import com.facebook.react.ReactNativeHost;
 import com.facebook.react.ReactPackage;
 import com.facebook.soloader.SoLoader;
 import java.lang.reflect.InvocationTargetException;
 import java.util.List;
 import io.invertase.firebase.database.RNFirebaseDatabasePackage;
+import io.invertase.firebase.RNFirebasePackage;
+import io.invertase.firebase.messaging.RNFirebaseMessagingPackage;   import io.invertase.firebase.notifications.RNFirebaseNotificationsPackage;
+import com.pusher.pushnotifications.PushNotifications;
 
 public class MainApplication extends Application implements ReactApplication {
 
@@ -27,6 +31,9 @@ public class MainApplication extends Application implements ReactApplication {
           // Packages that cannot be autolinked yet can be added manually here, for example:
           // packages.add(new MyReactNativePackage());
           packages.add(new RNFirebaseDatabasePackage());
+          
+          packages.add(new RNFirebaseMessagingPackage());
+          packages.add(new RNFirebaseNotificationsPackage());
           return packages;
         }
 
@@ -46,6 +53,8 @@ public class MainApplication extends Application implements ReactApplication {
     super.onCreate();
     SoLoader.init(this, /* native exopackage */ false);
     initializeFlipper(this); // Remove this line if you don't want Flipper enabled
+    PushNotifications.start(getApplicationContext(), "b16693f8-071b-4ba1-a33c-d7cc489f2a1e");
+    PushNotifications.addDeviceInterest("hello");
   }
 
   /**

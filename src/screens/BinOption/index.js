@@ -64,6 +64,7 @@ class MainScreen extends Component {
               keyExtractor={(item, index) => index.toString()}
               renderItem={({item}) =>  
               <EditMyBin 
+                onPress={() => this.props.navigation.navigate('BinEdit', { item })}       
                 nameBin={item.nama_bin}
                 alamatBin={item.alamat_bin}
               />}                

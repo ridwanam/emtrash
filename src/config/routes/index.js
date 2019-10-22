@@ -1,12 +1,13 @@
 import { createAppContainer,createStackNavigator } from 'react-navigation';
-import { MainScreen, BinOption, BinDetail } from '../../screens';
+import { MainScreen, BinOption, BinDetail, BinEdit } from '../../screens';
 
 
 const Router = createStackNavigator(
   {
     MainScreen : MainScreen,
     BinOption : BinOption,
-    BinDetail: BinDetail
+    BinDetail: BinDetail,
+    BinEdit: BinEdit
   },
   {
     headerMode: 'none',

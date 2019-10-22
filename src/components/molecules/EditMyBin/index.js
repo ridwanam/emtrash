@@ -1,26 +1,28 @@
 import React from 'react';
-import {View, StyleSheet, Image, Text} from 'react-native';
+import {View, StyleSheet, Image, Text, TouchableOpacity} from 'react-native';
 
-const EditMyBin = ({nameBin, alamatBin}) => {
+const EditMyBin = ({nameBin,alamatBin,valueBin,onPress}) =>{
     return(
-        <View style={styles.myBinStyle}>
+      <TouchableOpacity  
+      onPress={onPress}
+      style={valueBin >= 90 ? styles.myBinStyleRed : styles.myBinStyle}>
           <View style={styles.binItem}>
               <View style={{width:50,height:60, backgroundColor:'#ACACAC',marginBottom:24,borderRadius:5,}}></View>
                 <View>
-                    <Text style={styles.h2}>{nameBin}</Text>
+                    <Text style={valueBin >= 90 ? styles.h2Red : styles.h2}>{nameBin}</Text>
                 </View>
                 <View>
-                    <Text style={styles.h3}>{alamatBin}</Text>
+                    <Text style={valueBin >= 90 ? styles.h3Red : styles.h3}>{alamatBin}</Text>
                 </View>
                 <View style={{alignSelf:'center'}}>
                     <View style={{width:30,height:30,backgroundColor:'gray'}}></View>
-              </View>
+                </View>
           </View>
-      </View>
+      </TouchableOpacity>
     )
   };
 
-  const styles = StyleSheet.create({
+const styles = StyleSheet.create({
     myBinStyle:{
         position: 'relative',
         height:200,
@@ -62,7 +64,24 @@ const EditMyBin = ({nameBin, alamatBin}) => {
         color: "gray",
         marginBottom:8
     },
+    h1Red:{
+        fontSize:18,
+        fontWeight:'bold',
+        color: "white",
+        marginBottom:8
+    },
+    h2Red:{
+        fontSize:14,
+        fontWeight:'bold',
+        color: "white",
+        marginBottom:8
+    },
+    h3Red:{
+        fontSize:12,
+        fontWeight:'normal',
+        color: "white",
+        marginBottom:8
+    }
 });
-
 
 export default  EditMyBin;
