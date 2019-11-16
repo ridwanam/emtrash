@@ -43,10 +43,10 @@ class MainScreen extends Component {
     return (
         <View style={{flex:1,backgroundColor: '#4eadfe'}}>
           <View style={styles.container}>
-          <View style={{flexDirection:'row',justifyContent:'flex-end'}}>
+          {/* <View style={{flexDirection:'row',justifyContent:'flex-end'}}>
             <View style={[styles.boxIconTop,{marginRight:18}]}></View>
             <View style={styles.boxIconTop}></View>
-          </View>
+          </View> */}
           <View style={{marginTop:24,marginBottom:36}}>
             <Text style={styles.heading2}>You're in</Text>
             <Text style={styles.heading1}>Bin Option</Text>
@@ -62,9 +62,9 @@ class MainScreen extends Component {
               horizontal
               data={this.state.list}
               keyExtractor={(item, index) => index.toString()}
-              renderItem={({item}) =>  
+              renderItem={({item, index}) =>  
               <EditMyBin 
-                onPress={() => this.props.navigation.navigate('BinEdit', { item })}       
+                onPress={() => this.props.navigation.navigate('BinEdit', { item, index  })}       
                 nameBin={item.nama_bin}
                 alamatBin={item.alamat_bin}
               />}                
@@ -91,7 +91,6 @@ const styles = StyleSheet.create({
   container:{
     paddingHorizontal: 18,
     paddingTop:18,
-    fontFamily: 'Roboto',
     flex:1
   },
   containerBinOption:{
@@ -105,20 +104,23 @@ const styles = StyleSheet.create({
   heading1:{
     fontSize:24,
     color:'#FFF',
-    fontWeight:'bold'
+    fontFamily: 'Quicksand-SemiBold'
   },
   heading2:{
     fontSize:16,
-    color:'#FFF'
+    color:'#FFF',
+    fontFamily: 'Quicksand-SemiBold'
   },
   textContent:{
     fontSize:14,
-    color:'#868686'
+    color:'#868686',
+    fontFamily: 'Quicksand-Light'
   },
   textQuote:{
     fontSize:18,
     textAlign:'center',
     color:'#FFF',
+    fontFamily: 'Quicksand-SemiBold'
   },
   boxIconTop: {
     width:26,

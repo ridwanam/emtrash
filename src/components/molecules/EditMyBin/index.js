@@ -7,7 +7,12 @@ const EditMyBin = ({nameBin,alamatBin,valueBin,onPress}) =>{
       onPress={onPress}
       style={valueBin >= 90 ? styles.myBinStyleRed : styles.myBinStyle}>
           <View style={styles.binItem}>
-              <View style={{width:50,height:60, backgroundColor:'#ACACAC',marginBottom:24,borderRadius:5,}}></View>
+          <View style={{width:60,height:60,marginBottom:24,borderRadius:5,}}>
+              <Image
+                    style={{width: '100%', height: '100%'}}
+                    source={require('../../assets/logo/logo.png')}
+                  />
+              </View>
                 <View>
                     <Text style={valueBin >= 90 ? styles.h2Red : styles.h2}>{nameBin}</Text>
                 </View>
@@ -15,7 +20,12 @@ const EditMyBin = ({nameBin,alamatBin,valueBin,onPress}) =>{
                     <Text style={valueBin >= 90 ? styles.h3Red : styles.h3}>{alamatBin}</Text>
                 </View>
                 <View style={{alignSelf:'center'}}>
-                    <View style={{width:30,height:30,backgroundColor:'gray'}}></View>
+                    <View style={{width:30,height:30}}>
+                    <Image
+                    style={{width: '100%', height: '100%'}}
+                    source={require('../../assets/logo/ic_rivise.png')}
+                  />
+                    </View>
                 </View>
           </View>
       </TouchableOpacity>

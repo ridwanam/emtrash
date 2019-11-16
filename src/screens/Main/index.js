@@ -39,10 +39,10 @@ class MainScreen extends Component {
     return (
         <View style={{flex:1,backgroundColor: '#4eadfe'}}>
           <View style={styles.container}>
-          <View style={{flexDirection:'row',justifyContent:'flex-end'}}>
+          {/* <View style={{flexDirection:'row',justifyContent:'flex-end'}}>
             <View style={[styles.boxIconTop,{marginRight:18}]}></View>
             <View style={styles.boxIconTop}></View>
-          </View>
+          </View> */}
           <View style={{marginTop:24,marginBottom:36}}>
             <Text style={styles.heading2}>You're in</Text>
             <Text style={styles.heading1}>Dashboard</Text>
@@ -74,7 +74,7 @@ class MainScreen extends Component {
                     source={require('../../components/assets/logo/logo.png')}
                   />
                   </View>
-                  <Text style={{marginLeft:16,fontSize:14,fontWeight:'bold'}}>Bin Option</Text>
+                  <Text style={{marginLeft:16,fontSize:14,fontFamily: 'Quicksand-SemiBold'}}>Bin Option</Text>
                 </View>
             </TouchableOpacity>
             <View style={{alignItems:'center',marginTop:40}}>
@@ -105,15 +105,18 @@ const styles = StyleSheet.create({
   heading1:{
     fontSize:24,
     color:'#FFF',
-    fontWeight:'bold'
+    fontWeight:'900',
+    fontFamily: 'Quicksand-SemiBold'
   },
   heading2:{
     fontSize:16,
-    color:'#FFF'
+    color:'#FFF',
+    fontFamily: 'Quicksand-SemiBold'
   },
   textContent:{
     fontSize:14,
-    color:'#868686'
+    color:'#868686',
+    fontFamily: 'Quicksand-Light'
   },
   boxIconTop: {
     width:26,

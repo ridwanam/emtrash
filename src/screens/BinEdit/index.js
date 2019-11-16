@@ -1,16 +1,39 @@
 import React,{Component} from 'react';
-import {View, StyleSheet, Image, Text, TextInput, TouchableOpacity} from 'react-native';
+import {View, StyleSheet, Image, Text, TextInput, TouchableOpacity, Alert} from 'react-native';
 import firebase from 'react-native-firebase'
 
 class BinDetail extends Component {    
     constructor(props){
         super(props)
+        const { navigation } = this.props
+        const item = navigation.getParam('item', null)
         this.state = {
           list: [],
-          text: ''
+          text: '',  
+          namaBin: item.nama_bin,
+          alamatBin: item.alamat_bin        
         }
       }
-    
+  
+    handleName = (text) => {
+        this.setState({ namaBin: text })
+    }
+    handleAlamat = (text) => {
+        this.setState({ alamatBin: text })
+    }
+    upadateBin = (namaBin, alamatBin) =>{
+      const index = this.props.navigation.getParam('index', null)
+      firebase.database().ref('bins/'+index).update({
+        nama_bin:namaBin, alamat_bin:alamatBin})
+        Alert.alert(
+          'Update Data Berhasil!',
+          'Data tempat sampah anda berhasil diubah',
+          [            
+            {text: 'OK', onPress: () => this.props.navigation.goBack()},
+          ],
+          {cancelable: false},
+        );
+    }
       componentDidMount() {
     
         firebase.database().ref('bins').on('value', (data) => {
@@ -23,7 +46,7 @@ class BinDetail extends Component {
       }
 
     render(){      
-      const item = this.props.navigation.getParam('item', null)
+      const { namaBin, alamatBin} = this.state
         return(
             <View style={{backgroundColor:'#4eadfe',flex:1}}>
               <View style={{flex:1}}>
@@ -53,27 +76,41 @@ class BinDetail extends Component {
                   paddingTop:16,
                   paddingHorizontal:26}}>
                     <View style={{flexDirection:'row'}}>
-                        <View style={{width:80,height:80,backgroundColor:'gray'}}></View>
-                        <View style={{marginLeft:12,justifyContent: 'center',}}>
-                            <Text style={[styles.heading2,{marginBottom:6}]}>{item.nama_bin}</Text>
-                            <Text style={styles.textContent}>{item.alamat_bin}</Text>
+                        <View style={{width:80,height:80}}
+                        >
+                          <Image
+                          style={{width: '100%', height: '100%'}}
+                          source={require('../../components/assets/logo/logo.png')}
+                        />
                         </View>
-                    </View>    
-                    <TextInput                
-                    >
-                      </TextInput>               
+                        <View style={{marginLeft:12,justifyContent: 'center',}}>
+                            <Text style={[styles.heading2,{marginBottom:6}]}>{namaBin}</Text>
+                            <Text style={styles.textContent}>{alamatBin}</Text>
+                        </View>
+                    </View>                                 
                     <View style={{marginTop:34}}>
-                      <Text style={[styles.heading2,{marginBottom:6}]} >Status</Text>
-                      <Text style={[styles.textContent, {marginBottom:24}]}>{item.sensor1}%</Text>
-                      <Text style={[styles.heading2,{marginBottom:6}]} >Terakhir Dibersihkan</Text>
-                      <Text style={[styles.textContent, {marginBottom:24}]}>2 Jam yang lalu</Text>
-                      <Text style={[styles.heading2,{marginBottom:6}]} >Task</Text>
-                      <Text style={[styles.textContent, {marginBottom:24}]}>Segera Dibersihkan</Text>
+                      <TextInput style = {[styles.input,{marginBottom: 16}]}
+                        underlineColorAndroid = "transparent"
+                        value = {namaBin}
+                        placeholderTextColor = "#ACACAC"
+                        autoCapitalize = "words"
+                        onChangeText = {this.handleName}
+                        />
+                        <TextInput style = {styles.input}
+                        underlineColorAndroid = "transparent"
+                        value = {alamatBin}
+                        placeholderTextColor = "#ACACAC"
+                        autoCapitalize = "words"
+                        onChangeText = {this.handleAlamat}
+                        />
                     </View>
-                    <TouchableOpacity style={[styles.btn,{marginTop:30,backgroundColor:'#4eadfe',justifyContent: 'center',alignItems:'center',width:'100%'}]} onPress={() => this.props.navigation.navigate('MainScreen')}>
+                    <TouchableOpacity style={[styles.btn,{marginTop:30,backgroundColor:'#4eadfe',justifyContent: 'center',alignItems:'center',width:'100%'}]} 
+                       onPress = {
+                          () => this.upadateBin(this.state.namaBin, this.state.alamatBin)
+                        }>
                         <Text style={[styles.heading2,{fontWeight:'bold',color:'#fff'}]}>Save</Text>
                     </TouchableOpacity>
-                    <TouchableOpacity style={{marginTop:25,color:'#e74c3c',justifyContent: 'center',alignItems:'center',width:'100%'}} onPress={() => this.props.navigation.navigate('MainScreen')}>
+                    <TouchableOpacity style={{marginTop:25,color:'#e74c3c',justifyContent: 'center',alignItems:'center',width:'100%'}} onPress={() => this.props.navigation.navigate('BinOption')}>
                         <Text style={[styles.heading2,{fontWeight:'bold',color:'#e74c3c'}]}>Discard</Text>
                     </TouchableOpacity>
               </View>
@@ -86,18 +123,27 @@ class BinDetail extends Component {
 const styles = StyleSheet.create({
   heading2:{
     fontSize:16,
-    color:'#424242'
+    color:'#424242',
+    fontFamily: 'Quicksand-SemiBold'
   },
   textContent:{
     fontSize:14,
-    color:'#868686'
+    color:'#868686',
+    fontFamily: 'Quicksand-Light'
   },
   btn:{
     backgroundColor:'#06EBFE',
     borderRadius:20,
     width:100,
     height:50
-  }
+  },
+  input: {    
+    height: 50,
+    borderColor: '#ACACAC',
+    borderWidth: 1,
+    borderRadius: 5,
+    paddingHorizontal: 8
+ }
 })
 
 export default BinDetail;

@@ -8,7 +8,12 @@ const MyBinFeatures = ({nameBin,alamatBin,valueBin,onPress}) =>{
       onPress={onPress}
       style={valueBin >= 90 ? styles.myBinStyleRed : valueBin >= 61 && valueBin <90 ? styles.myBinStyleYellow : styles.myBinStyle}>
           <View style={styles.binItem}>
-              <View style={{width:50,height:60, backgroundColor:'#ACACAC',marginBottom:24,borderRadius:5,}}></View>
+              <View style={{width:60,height:60,marginBottom:24,borderRadius:5,}}>
+              <Image
+                    style={{width: '100%', height: '100%'}}
+                    source={valueBin >= 61 ? require('../../assets/logo/whitelogo.png'):require('../../assets/logo/logo.png') }
+                  />
+              </View>
                 <View>
                     <Text style={valueBin >= 90 ? styles.h2Red : valueBin >= 61 && valueBin <90 ? styles.h2Red : styles.h2}>{nameBin}</Text>
                 </View>
